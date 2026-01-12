@@ -31,7 +31,7 @@ public class SelectorsCss {
 //        WebElement divRootClass = driver.findElement(By.cssSelector(".container"));
 //        WebElement divRootClass =driver.findElement(By.className("container"));
 
-                System.out.println(divRootClass.getAttribute("id"));
+        System.out.println(divRootClass.getAttribute("id"));
 
 
         pause(3);
@@ -46,7 +46,36 @@ public class SelectorsCss {
 
     }
 
+    @Test
+    public void iLcarroTest() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.get("https://ilcarro.web.app/search");
+        pause(2);
+        driver.navigate().to("https://ilcarro.web.app/let-car-work");
+        pause(2);
+        driver.navigate().back();
+        pause(2);
+        driver.navigate().refresh();
+        pause(2);
+        WebElement termOfUse = driver.findElement(By.cssSelector("a[href='/terms-of-use']"));
+        termOfUse.click();
+        pause(2);
 
+//        WebElement logIn = driver.findElement(By.cssSelector("a[href='/login?url=%2Fterms-of-use']"));
+        WebElement logIn = driver.findElement(By.cssSelector("a[ng-reflect-router-link='login']"));
+        logIn.click();
+        pause(2);
+        WebElement registrationChild = driver.findElement(By.cssSelector("div.header a.navigation-link:nth-child(5)"));
+        registrationChild.click();
+        pause(2);
+//        WebElement logo = driver.findElement(By.cssSelector("a*[class='logo']"));
+//        logo.click();
+//        pause(2);
+        driver.quit();
+
+
+    }
 
     static void pause(int time) {
 
