@@ -41,7 +41,7 @@ public class SelectorXpath {
         pausa(2);
         WebElement btnRegistration = driver.findElement(By.xpath("//*[@name='registration']"));
         btnRegistration.click();
-        pausa(2);
+        pausa(5);
         WebElement btnSignOut = driver.findElement(By.xpath("//button[text()='Sign Out']"));
         btnSignOut.click();
         pausa(2);
@@ -50,14 +50,41 @@ public class SelectorXpath {
 
         System.out.println(buttons);
         System.out.println(buttons.get(1).getText());
-
-
-
-
-
-
     }
+@Test
 
+public void iLcarroXpathTest(){
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://ilcarro.web.app/search ");
+
+        WebElement logIn = driver.findElement(By.xpath("//a[@href='/login?url=%2Fsearch']"));
+        logIn.click();
+        pausa(2);
+//         int r= new Random().nextInt(1000);
+        WebElement fieldEmail= driver.findElement(By.xpath("//input[@id='email']"));
+        fieldEmail.sendKeys("qa32554@mail.com");
+        pausa(3);
+        WebElement fieldPassword = driver.findElement(By.xpath("//input[@formcontrolname='password']"));
+        fieldPassword.sendKeys("Password1!");
+        pausa(3);
+        WebElement btnYalla=driver.findElement(By.xpath("//button[text()='Y’alla!']"));
+        btnYalla.click();
+        pausa(2);
+        WebElement btnPositive = driver.findElement(By.xpath("//button[@class='positive-button ng-star-inserted']"));
+        btnPositive.click();
+        pausa(5);
+        WebElement btnLogOut = driver.findElement(By.xpath("//*[@href='/logout?url=%2Fsearch']"));
+        pausa(2);
+        driver.navigate().refresh();
+        pausa(2);
+        driver.quit();
+
+
+
+
+}
 
     public void pausa(int time) {
         try {
