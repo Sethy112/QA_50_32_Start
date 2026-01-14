@@ -76,6 +76,7 @@ public void iLcarroXpathTest(){
         btnPositive.click();
         pausa(5);
         WebElement btnLogOut = driver.findElement(By.xpath("//*[@href='/logout?url=%2Fsearch']"));
+        btnLogOut.click();
         pausa(2);
         driver.navigate().refresh();
         pausa(2);
