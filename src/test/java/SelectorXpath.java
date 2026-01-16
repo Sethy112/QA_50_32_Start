@@ -67,9 +67,12 @@ public void iLcarroXpathTest(){
         fieldEmail.sendKeys("qa32554@mail.com");
         pausa(3);
         WebElement fieldPassword = driver.findElement(By.xpath("//input[@formcontrolname='password']"));
+//          //form/div[last()]/input вниз  к ребенку
         fieldPassword.sendKeys("Password1!");
         pausa(3);
         WebElement btnYalla=driver.findElement(By.xpath("//button[text()='Y’alla!']"));
+//        "//button[start-with(text()='Y’a)]"
+
         btnYalla.click();
         pausa(2);
         WebElement btnPositive = driver.findElement(By.xpath("//button[@class='positive-button ng-star-inserted']"));
@@ -81,6 +84,7 @@ public void iLcarroXpathTest(){
         driver.navigate().refresh();
         pausa(2);
         driver.quit();
+//      //input[@id='password']/../..
 
 
 
